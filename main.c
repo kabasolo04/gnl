@@ -6,7 +6,7 @@
 /*   By: kabasolo <kabasolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:50:46 by kabasolo          #+#    #+#             */
-/*   Updated: 2024/02/01 18:32:54 by kabasolo         ###   ########.fr       */
+/*   Updated: 2024/02/01 19:17:33 by kabasolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(void)
 {
 	return (0);
 }
-/*Prueba de aver que mierda devuelve
+/*Prueba de aver que devuelve
 	int	fd = open("1prueba.txt", O_RDWR | O_CREAT, S_IRUSR | S_IWUSR);
 	char	*str;
 	
