@@ -6,7 +6,7 @@
 /*   By: kabasolo <kabasolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:39:28 by kabasolo          #+#    #+#             */
-/*   Updated: 2024/02/01 15:27:44 by kabasolo         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:38:08 by kabasolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-size_t	ft_strlen(const char *s);
-int		ft_find_jump(char *rem);
+int		ft_lfc(char *str, char c);
 void	ft_cut_buffer(char *buffer);
 char	*ft_join(char *remaining, char *readed);
 void	ft_bzero(void *s, size_t n);

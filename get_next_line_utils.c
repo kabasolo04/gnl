@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_rem_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kabasolo <kabasolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 18:12:05 by kabasolo          #+#    #+#             */
-/*   Updated: 2024/01/22 10:59:06 by kabasolo         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:37:00 by kabasolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i ++;
-	return (i);
-}
-
-int	ft_find_jump(char *rem)
+int	ft_lfc(char *str, char c)
 {
 	int	i;
+	int	l;
 
 	i = 0;
-	while (rem[i] != '\0')
+	l = 0;
+	while (str[l] != '\0')
+		l ++;
+	while (i <= l)
 	{
-		if (rem[i] == '\n')
+		if (str[i] == (unsigned char)c)
 			return (i);
 		i ++;
 	}
@@ -42,9 +36,9 @@ char	*ft_join(char *line, char *buffer)
 	size_t	i;
 	size_t	j;
 
-	if (!buffer || buffer[0] == '\0')
+	if (!buffer)
 		return (line);
-	s = malloc((ft_strlen(line) + ft_strlen(buffer) + 1) * sizeof(char));
+	s = malloc((ft_lfc(line, '\0') + ft_lfc(buffer, '\0') + 1) * sizeof(char));
 	if (!s)
 		return (NULL);
 	i = 0;
@@ -54,7 +48,7 @@ char	*ft_join(char *line, char *buffer)
 		i ++;
 	}
 	j = 0;
-	while (buffer[j - 1] != '\n' && j < ft_strlen(buffer))
+	while (buffer[j - 1] != '\n' && buffer[j] != '\0')
 	{
 		s[i + j] = buffer[j];
 		j ++;
@@ -64,23 +58,20 @@ char	*ft_join(char *line, char *buffer)
 	return (s);
 }
 
-void	ft_cut_buffer(char *rem)
+void	ft_cut_buffer(char *buffer)
 {
 	int	i;
 	int	t;
 
 	i = 0;
-	t = ft_find_jump(rem);
-	while (rem[i + t] != '\0')
+	t = ft_lfc(buffer, '\n');
+	while (buffer[i + t] != '\0')
 	{
-		rem[i] = rem[i + t + 1];
+		buffer[i] = buffer[i + t + 1];
 		i ++;
 	}
 	while (i <= BUFFER_SIZE)
-	{
-		rem[i] = '\0';
-		i ++;
-	}
+		buffer[i ++] = '\0';
 }
 
 void	ft_bzero(void *s, size_t n)
@@ -89,8 +80,5 @@ void	ft_bzero(void *s, size_t n)
 
 	i = 0;
 	while (i < n)
-	{
-		((char *)s)[i] = 0;
-		i ++;
-	}
+		((char *)s)[i ++] = 0;
 }
