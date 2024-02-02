@@ -6,13 +6,13 @@
 /*   By: kabasolo <kabasolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 18:12:05 by kabasolo          #+#    #+#             */
-/*   Updated: 2024/02/02 13:37:00 by kabasolo         ###   ########.fr       */
+/*   Updated: 2024/02/02 15:11:13 by kabasolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_lfc(char *str, char c)
+int	ft_lfc(char *str, char c) // lfc -> Lenght For Char
 {
 	int	i;
 	int	l;
